@@ -1,0 +1,61 @@
+﻿<Window x:Class="AppProjects.DlgCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        mc:Ignorable="d"
+        Title="DlgCompanie" Height="379" Width="651" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Button x:Name="ButtonNew" Content="Добавить компанию" HorizontalAlignment="Left" Margin="478,285,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF69D884" Click="ButtonNew_Click"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="35,285,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="ButtonCancel_Click"/>
+        <Button x:Name="ButtonUpdate" Content="Готово" HorizontalAlignment="Left" Margin="478,285,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF409140" Click="ButtonUpdate_Click" Foreground="White" FontWeight="Bold"/>
+        <TabControl HorizontalAlignment="Left" Height="236" Margin="35,22,0,0" VerticalAlignment="Top" Width="572">
+            <TabItem Header="Основное">
+                <Grid Background="White">
+                    <Label Content="Компания" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Веб-сайт" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Эл.адрес" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Идустрия" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BoxCompany" HorizontalAlignment="Left" Height="23" Margin="92,14,0,0" TextWrapping="Wrap"  Text="{Binding  Path=Name, Mode=TwoWay}" VerticalAlignment="Top" Width="443"/>
+                    <TextBox x:Name="BoxWebsite" HorizontalAlignment="Left" Height="23" Margin="92,45,0,0" TextWrapping="Wrap" Text="{Binding  Path=Website, Mode=TwoWay}" VerticalAlignment="Top" Width="443"/>
+                    <TextBox x:Name="BoxEmail" HorizontalAlignment="Left" Height="23" Margin="92,76,0,0" TextWrapping="Wrap"  Text="{Binding  Path=Email, Mode=TwoWay}" VerticalAlignment="Top" Width="443"/>
+                    <ComboBox x:Name="BoxIndustry" HorizontalAlignment="Left" Height="23" Margin="92,107,0,0"  Text="{Binding  Path=Industry, Mode=TwoWay}" VerticalAlignment="Top" Width="443" IsEditable="True"/>
+                    <ComboBox x:Name="BoxOwner" SelectedValue ="{Binding Id_Owner, Mode=TwoWay}" DisplayMemberPath = "Email" SelectedValuePath = "id" Margin="186,155,31,26" RenderTransformOrigin="0.513,-0.259" />
+                    <Label Content="Исполнительный директор" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="176"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Адрес">
+                <Grid Background="White" >
+                    <Label Content="Адрес" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Почтовый код" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Город" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Страна" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BoxAdress" HorizontalAlignment="Left" Height="23" Margin="108,14,0,0" TextWrapping="Wrap" Text="{Binding  Path=Address, Mode=TwoWay}" VerticalAlignment="Top" Width="427"/>
+                    <TextBox x:Name="BoxPostCode" HorizontalAlignment="Left" Height="23" Margin="108,45,0,0" TextWrapping="Wrap" Text="{Binding  Path=Post_code, Mode=TwoWay}" VerticalAlignment="Top" Width="427"/>
+                    <ComboBox x:Name="BoxCity" HorizontalAlignment="Left" Height="23" Margin="108,76,0,0"  Text="{Binding  Path=City, Mode=TwoWay}" VerticalAlignment="Top" Width="427" IsEditable="True"/>
+                    <ComboBox x:Name="BoxCountry" HorizontalAlignment="Left" Height="23" Margin="108,107,0,0"  Text="{Binding  Path=Country, Mode=TwoWay}" VerticalAlignment="Top" Width="427" IsEditable="True"/>
+                    <Label Content="Телефон" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Факс" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BoxPhone" HorizontalAlignment="Left" Height="23" Margin="108,135,0,0" TextWrapping="Wrap"  Text="{Binding Phone, Mode=TwoWay}" VerticalAlignment="Top" Width="427"/>
+                    <TextBox x:Name="BoxFax" HorizontalAlignment="Left" Height="23" Margin="108,166,0,0" TextWrapping="Wrap"  Text="{Binding Fax, Mode=TwoWay}" VerticalAlignment="Top" Width="427"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Заметки">
+                <Grid Background="White">
+                    <Label Content="Выберите дополнительные сведения о компании" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <RichTextBox x:Name="BoxNotes" HorizontalAlignment="Left" Height="154" Margin="20,41,0,0" VerticalAlignment="Top" Width="524">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="{Binding  Path=Notes, Mode=TwoWay}"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>

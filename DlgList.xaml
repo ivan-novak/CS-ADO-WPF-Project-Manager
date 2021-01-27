@@ -1,0 +1,39 @@
+﻿<Window x:Class="AppProjects.DlgList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        mc:Ignorable="d"
+        Title="DlgList" Height="390.756" Width="653.782" Loaded="Window_Loaded">
+    <Grid>
+        <Button x:Name="ButtonNew" Content="Готово" HorizontalAlignment="Left" Margin="490,292,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF409140" Click="ButtonNew_Click" BorderBrush="#FF494949" Foreground="#FFECEBEB" FontWeight="Bold"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="35,292,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="ButtonCancel_Click"/>
+        <Button x:Name="ButtonAddProject" Content="..." HorizontalAlignment="Left" Margin="577,124,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.394,-0.014" Click="ButtonAddProject_Click" Height="22"/>
+        <TabControl HorizontalAlignment="Left" Height="251" Margin="35,25,0,0" VerticalAlignment="Top" Width="584">
+            <TabItem Header="Основное">
+                <Grid >
+                    <Label Content="Название" HorizontalAlignment="Left" Margin="22,30,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="103,33,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="428"/>
+                    <Label Content="Проект" HorizontalAlignment="Left" Margin="22,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.62,1.192"/>
+                    <ComboBox IsEnabled="False" x:Name="BoxProjects" SelectedValue = "{Binding Id_Project, Mode=TwoWay}" HorizontalAlignment="Left" Margin="103,78,0,0" VerticalAlignment="Top" Width="428" RenderTransformOrigin="0.526,-0.409"/>
+                    <ComboBox x:Name="BoxOwner" SelectedValue ="{Binding Id_Owner, Mode=TwoWay}" DisplayMemberPath = "Email" SelectedValuePath = "id" Margin="155,122,47,75" RenderTransformOrigin="0.513,-0.259" />
+                    <Label Content="Руководитель этапа" HorizontalAlignment="Left" Margin="22,122,0,0" VerticalAlignment="Top" Width="144"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Опмсание">
+                <Grid >
+                    <Label Content="Предоставьте описание (не обязательно)" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.525,-1.462"/>
+                    <RichTextBox HorizontalAlignment="Left" Height="159" Margin="23,41,0,0" VerticalAlignment="Top" Width="514" Background="#FFFBFBFB">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="{Binding Note, Mode=TwoWay}"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

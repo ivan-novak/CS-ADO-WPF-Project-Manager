@@ -1,0 +1,53 @@
+﻿<Window x:Class="AppProjects.DlgProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        mc:Ignorable="d"
+        Title="Добавить проект" Height="381.058" Width="638.301" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Как называется проект?" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="76,86,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <TabControl HorizontalAlignment="Left" Height="189" Margin="35,91,0,0" VerticalAlignment="Top" Width="572">
+            <TabItem Header="Основное">
+                <Grid Background="White">
+                    <Label Content="Категория проекта" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="BoxCategory" SelectedValuePath="Id" SelectedValue = "{Binding Id_Category, Mode=TwoWay}" DisplayMemberPath = "Name" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="318"/>
+                    <Button x:Name="ButtonAddCategory" Content="..." HorizontalAlignment="Left" Margin="333,41,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.394,-0.014" Click="ButtonAddCategory_Click" Height="22"/>
+                    <Label Content="Год" HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="BoxCategory_Copy" SelectedValue = "{Binding Year, Mode=TwoWay}" HorizontalAlignment="Left" Margin="409,41,0,0" VerticalAlignment="Top" Width="126" IsEditable="True"/>
+                    <Label Content="Руководитель проекта" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="BoxOwner" SelectedValuePath="id" SelectedValue ="{Binding Id_Owner, Mode=TwoWay}" DisplayMemberPath = "Email" HorizontalAlignment="Left" Margin="149,90,0,0" VerticalAlignment="Top" Width="386" RenderTransformOrigin="0.52,-0.399"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Компания">
+                <Grid Background="White">
+                    <Label Content="Выберите существующую компанию" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="546"/>
+                    <ComboBox x:Name="BoxCompany" HorizontalAlignment="Left" Margin="10,41,0,0" SelectedValuePath="id" SelectedValue ="{Binding  Path=Id_Company, Mode=TwoWay}" DisplayMemberPath = "Name" VerticalAlignment="Top" Width="511" IsEnabled="False"/>
+                    <Label Content="Или введите название новой компании" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="546"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="10,99,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="546"/>
+                    <Button x:Name="ButtonAddCategory_Copy" Content="..." HorizontalAlignment="Left" Margin="526,41,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.394,-0.014" Click="ButtonAddCompany_Click" Height="22"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Описание">
+                <Grid Background="White">
+                    <Label Content="Предоставьте описание (не обязательно)" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="114" Margin="10,37,0,0" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top" Width="546" Background="#FFFBFBFB"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="ButtonNew" Content="Готово" HorizontalAlignment="Left" Margin="478,292,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF409140" Click="ButtonNew_Click" Foreground="#FFF9F9F9" FontWeight="Bold"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="35,292,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="ButtonCancel_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="35,56,0,0" TextWrapping="Wrap" Text="{Binding  Path=Name, Mode=TwoWay}" VerticalAlignment="Top" Width="572"/>
+
+    </Grid>
+</Window>

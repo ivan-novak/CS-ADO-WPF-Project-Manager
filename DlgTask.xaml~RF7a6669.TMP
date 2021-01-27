@@ -1,0 +1,73 @@
+﻿<Window x:Class="AppProjects.DlgTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        mc:Ignorable="d"
+        Title="DlgTask" Height="394.847" Width="647.075" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Как называется задача?" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top"/>
+        <TabControl HorizontalAlignment="Left" Height="189" Margin="35,91,0,0" VerticalAlignment="Top" Width="572">
+            <TabItem Header="Описание">
+                <Grid Background="White">
+                    <Label Content="Предоставьте описание (не обязательно)" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="51" Margin="10,100,0,0" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top" Width="546" Background="#FFFBFBFB"/>
+                    <Label Content="Список задач" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="BoxList" SelectedValue = "{Binding Id_List, Mode=TwoWay}"  DisplayMemberPath = "Name"  SelectedValuePath = "Id" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="510"/>
+                    <Button x:Name="ButtonAddList" Content="..." HorizontalAlignment="Left" Margin="526,41,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.394,-0.014" Click="ButtonAddList_Click" Height="22"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Даты">
+                <Grid Background="White">
+                    <Label Content="Даты задач (не обязательно)"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Добавление даты начала и окончания предостовляет вашей команде способ увидеть продолжительность этой задачи и помогает планировать ее выполнение" VerticalAlignment="Top" Width="546" FontSize="11"/>
+                    <Label Content="Дата начала" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Дата окончания" HorizontalAlignment="Left" Margin="223,91,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="Box_EndDate" Text ="{Binding Due_Date, Mode=TwoWay}" HorizontalAlignment="Left" Margin="223,122,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Дата выполнения" HorizontalAlignment="Left" Margin="422,91,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="Box_DueDate"  HorizontalAlignment="Left" Margin="422,122,0,0" VerticalAlignment="Top" Width="99"/>
+                    <DatePicker  x:Name="Box_StartDate" Text ="{Binding Start_Date, StringFormat={}{MM-dd-yyyy}, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" DisplayDate="2019-12-05"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Люди">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Дополнительно">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="536*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Выберите владельца задачи" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="BoxOwner" SelectedValue ="{Binding Id_Owner,  Mode=TwoWay}" DisplayMemberPath = "Email" SelectedValuePath = "id" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="213" Grid.ColumnSpan="3"/>
+                    <Label Content="Выберите статус" HorizontalAlignment="Left" Margin="256,87,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <ComboBox x:Name="BoxStatus" SelectedValue ="{Binding Status, Mode=TwoWay}" SelectedIndex="0" HorizontalAlignment="Left" Margin="256,120,0,0" VerticalAlignment="Top" Width="213" Grid.Column="2">
+                        <ComboBoxItem Content="В ожидании"/>
+                        <ComboBoxItem Content="Выполняется"/>
+                        <ComboBoxItem Content="Выполнено"/>
+                    </ComboBox>
+                    <Label Content="Прогресс" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Slider HorizontalAlignment="Left" Margin="256,45,0,0" VerticalAlignment="Top" Width="270" Grid.Column="2"/>
+                    <Label Content="Установите приоритет" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="BoxPriority"  SelectedValue ="{Binding Priority, Mode=TwoWay}" SelectedIndex = "0" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="213" Grid.ColumnSpan="3">
+                        <ComboBoxItem Content="Низкий"/>
+                        <ComboBoxItem Content="Средний"/>
+                        <ComboBoxItem Content="Высокий"/>
+                    </ComboBox>
+                    <Label Content="Прогресс" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Slider HorizontalAlignment="Left" Margin="256,45,0,0" VerticalAlignment="Top" Width="270" Grid.Column="2"/>
+                </Grid>
+            </TabItem>
+
+
+
+        </TabControl>
+        <Button x:Name="ButtonNew" Content="Готово" HorizontalAlignment="Left" Margin="478,292,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF69D884" Click="ButtonNew_Click"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="35,292,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="ButtonCancel_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="35,56,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" Width="572"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd22d015deaa4d8f923ec91a245c8ed9" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectsModel.Categories" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Comments" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Companies" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Lists" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Persons" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Projects" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Recipients" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Tasks" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Executers" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.Roles" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectsModel.ViewObject" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="ProjectsModel.FK_Projects_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Comments_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Comments_Tasks" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Companies_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Persons_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Projects_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Lists_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Lists_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Tasks_Lists" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Projects_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectsModel.FK_Tasks_Persons" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

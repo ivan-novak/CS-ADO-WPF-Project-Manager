@@ -1,0 +1,60 @@
+﻿  
+    <Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        xmlns:viewmodel="clr-namespace:AppProjects"
+        xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="AppProjects.Gantt"
+        mc:Ignorable="d"
+        Title="Gantt" Height="450" Width="800">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <viewmodel:ListBackedProjectViewModel x:Key="viewmodel" />
+        </Grid.Resources>
+        <Grid.DataContext>
+            <Binding Source="{StaticResource viewmodel}" />
+        </Grid.DataContext>
+        <ig:ListBackedProject x:Name="dataProvider"
+                        TaskItemsSource="{Binding Tasks}">
+            <ig:ListBackedProject.TaskPropertyMappings>
+                <!-- Add Project Task Property Mappings Here -->
+                <ig:ProjectTaskPropertyMappingCollection UseDefaultMappings="True">
+                    <!-- Start Mandatory Project Task Property Mappings -->
+                    <ig:ProjectTaskPropertyMapping TaskProperty="DataItemId"
+                                       DataObjectProperty="TaskID" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="Tasks"
+                                       DataObjectProperty="Tasks" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="ConstraintType"
+                                       DataObjectProperty="ConstraintType" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="ConstraintDate"
+                                       DataObjectProperty="ConstraintDate" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="DurationFormat"
+                                       DataObjectProperty="DurationFormat" />
+                    <!-- End Mandatory Project Task Property Mappings -->
+                    <ig:ProjectTaskPropertyMapping TaskProperty="TaskName"
+                                       DataObjectProperty="Name" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="Start"
+                                       DataObjectProperty="Start" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="IsMilestone"
+                                       DataObjectProperty="IsMilestone" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="IsActive"
+                                       DataObjectProperty="IsInProgress" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="Duration"
+                                       DataObjectProperty="DurationInHours" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="Deadline"
+                                       DataObjectProperty="DeadlineDate" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="IsManual"
+                                       DataObjectProperty="IsUndetermined" />
+                    <ig:ProjectTaskPropertyMapping TaskProperty="Resources"
+                                       DataObjectProperty="ResourceName" />
+                </ig:ProjectTaskPropertyMappingCollection>
+            </ig:ListBackedProject.TaskPropertyMappings>
+        </ig:ListBackedProject>
+        <ig:XamGantt x:Name="gantt"
+               Project="{Binding ElementName=dataProvider}"/>
+    </Grid>
+
+
+</Window>

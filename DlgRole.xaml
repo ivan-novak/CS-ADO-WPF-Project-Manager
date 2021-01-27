@@ -1,0 +1,18 @@
+﻿<Window x:Class="AppProjects.DlgRole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProjects"
+        mc:Ignorable="d"
+        Title="DlgRole" Height="278.571" Width="465.966" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Button x:Name="ButtonOK" Content="Готово" HorizontalAlignment="Left" Margin="301,185,0,0" VerticalAlignment="Top" Width="129" Height="35" Background="#FF69D884" Click="ButtonOK_Click"/>
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="35,185,0,0" VerticalAlignment="Top" Width="101" Height="35" Click="ButtonCancel_Click"/>
+        <Label Content="Как называется роль?" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BoxName" Text="{Binding Name, Mode=TwoWay}"  HorizontalAlignment="Left" Height="23" Margin="35,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="395"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BoxDescrition" HorizontalAlignment="Left" Height="61" Margin="35,110,0,0" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top" Width="395"/>
+
+    </Grid>
+</Window>
